@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text will be replaced.
+  </div>
+  <script>
+    document.getElementById("myDiv").innerHTML = "<p>This is some text.</p><p>This is more text.</p><img src='broken-image.jpg' alt='broken image'>";
+  </script>
+</body>
+</html>

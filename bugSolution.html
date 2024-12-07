@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text will be replaced.
+  </div>
+  <script>
+    function checkImageExists(url, callback) {
+      var img = new Image();
+      img.onload = function() { callback(true); };
+      img.onerror = function() { callback(false); };
+      img.src = url;
+    }
+
+    checkImageExists('valid-image.jpg', function(exists) {
+      if (exists) {
+        document.getElementById("myDiv").innerHTML = "<p>This is some text.</p><p>This is more text.</p><img src='valid-image.jpg' alt='valid image'>";
+      } else {
+        document.getElementById("myDiv").innerHTML = "<p>This is some text.</p><p>This is more text.</p><p>Image not found.</p>";
+      }
+    });
+  </script>
+</body>
+</html>
